@@ -24,3 +24,7 @@ test('includes visible focus and reduced-motion styling', () => {
   assert.match(styles, /:focus-visible/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
+
+test('keeps the decorative crosshair inside its signal container', () => {
+  assert.match(styles, /\.signal::after\s*\{\s*width:\s*100%/);
+});

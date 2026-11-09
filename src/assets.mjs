@@ -25,8 +25,8 @@ h1 { max-width: 16ch; margin: .7rem 0 1.5rem; font-size: clamp(3.1rem, 8vw, 7.6r
 .status strong { color: var(--accent); }
 .signal { position: relative; width: min(100%, 27rem); aspect-ratio: 1; justify-self: center; border: 1px solid #ffffff16; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 16%, transparent), transparent 54%); box-shadow: inset 0 0 5rem #0008, 0 0 6rem color-mix(in srgb, var(--accent) 9%, transparent); }
 .signal::before, .signal::after { position: absolute; inset: 50% auto auto 50%; background: #ffffff18; content: ""; transform: translate(-50%, -50%); }
-.signal::before { width: 1px; height: 114%; }
-.signal::after { width: 114%; height: 1px; }
+.signal::before { width: 1px; height: 100%; }
+.signal::after { width: 100%; height: 1px; }
 .signal-orbit { position: absolute; border: 1px solid color-mix(in srgb, var(--accent) 52%, transparent); border-radius: 50%; }
 .signal-orbit-one { inset: 14%; border-style: dashed; animation: orbit 32s linear infinite; }
 .signal-orbit-two { inset: 29%; animation: orbit 21s linear infinite reverse; }
