@@ -1,0 +1,15 @@
+{
+  "name": "@thinecraft/web",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Public source for the ThineCraft project websites.",
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "UNLICENSED"
+}
