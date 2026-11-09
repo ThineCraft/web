@@ -1,4 +1,5 @@
-const REQUIRED_FIELDS = ['id', 'name', 'domain', 'eyebrow', 'headline', 'summary', 'accent', 'status'];
+const REQUIRED_STRING_FIELDS = ['id', 'name', 'domain', 'eyebrow', 'headline', 'summary', 'accent', 'status', 'thesis'];
+const REQUIRED_ARRAY_FIELDS = ['features', 'sequence', 'signal'];
 
 export function escapeHtml(value) {
   return String(value)
@@ -10,10 +11,30 @@ export function escapeHtml(value) {
 }
 
 export function validateSite(site) {
-  for (const field of REQUIRED_FIELDS) {
-    if (!site?.[field]) {
+  const siteId = site?.id ?? '<unknown>';
+  for (const field of REQUIRED_STRING_FIELDS) {
+    if (typeof site?.[field] !== 'string' || site[field].trim() === '') {
       throw new Error(`Site ${site?.id ?? '<unknown>'} is missing required field ${field}`);
     }
+  }
+  for (const field of REQUIRED_ARRAY_FIELDS) {
+    if (!Array.isArray(site?.[field]) || site[field].length === 0) {
+      throw new Error(`Site ${siteId} is missing required field ${field}`);
+    }
+  }
+  site.features.forEach((feature, index) => {
+    for (const field of ['label', 'title', 'body']) {
+      if (typeof feature?.[field] !== 'string' || feature[field].trim() === '') {
+        throw new Error(`Site ${siteId} is missing required field features[${index}].${field}`);
+      }
+    }
+  });
+  for (const field of ['sequence', 'signal']) {
+    site[field].forEach((value, index) => {
+      if (typeof value !== 'string' || value.trim() === '') {
+        throw new Error(`Site ${siteId} is missing required field ${field}[${index}]`);
+      }
+    });
   }
   return site;
 }

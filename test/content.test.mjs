@@ -11,7 +11,7 @@ function includesAll(html, values) {
 }
 
 test('ShareCraft explains the full SharePoint alternative and co-authoring direction', () => {
-  includesAll(rendered.share, ['SharePoint', 'intranet', 'document librar', 'governance', 'WordCraft', 'GridCraft', 'PdfCraft', 'SolidCraft', 'DeckCraft', 'co-authoring']);
+  includesAll(rendered.share, ['SharePoint', 'intranet', 'document librar', 'governance', 'WordCraft', 'GridCraft', 'PdfCraft', 'SolidCraft', 'DeckCraft', 'co-authoring', 'workflow integration', 'controlled public submissions']);
 });
 
 test('DriveCraft explains hybrid cross-platform migration and continuity', () => {
@@ -19,7 +19,7 @@ test('DriveCraft explains hybrid cross-platform migration and continuity', () =>
 });
 
 test('FormCraft explains browser, paper capture, QR anchoring, and optional attestation', () => {
-  includesAll(rendered.form, ['PdfCraft', 'ShareCraft', 'QR code', 'video stream', 'panorama', 'read-only', 'OpenTimestamps', 'Bitcoin', 'document hash']);
+  includesAll(rendered.form, ['PdfCraft', 'ShareCraft', 'QR code', 'alignment anchor', 'video stream', 'panorama', 'read-only', 'OpenTimestamps', 'Bitcoin', 'document hash']);
 });
 
 test('every product remains explicitly planned and excluded projects do not appear', () => {

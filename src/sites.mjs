@@ -46,6 +46,7 @@ export const sites = [
       planned('Sites and structured knowledge', 'Team sites, communication sites, intranets, pages, news, lists, navigation, and reusable content are part of the intended SharePoint-alternative scope.'),
       planned('Document libraries and governance', 'Document libraries are intended to combine metadata, versions, search, permissions, sharing controls, auditability, retention, and governance.'),
       planned('Co-authoring across the craft', 'Presence and co-authoring are intended for WordCraft, GridCraft, PdfCraft, SolidCraft, DeckCraft, and other compatible ThineCraft applications.'),
+      planned('Workflows and a controlled public edge', 'Workflow integration is intended to connect content processes across the ecosystem, while controlled public submissions can receive records without exposing the private workspace.'),
     ],
     sequence: ['Publish a governed space', 'Collaborate in context', 'Keep knowledge portable'],
     signal: ['SITE', 'LIBRARY', 'CONTEXT'],
@@ -146,7 +147,7 @@ export const sites = [
     thesis: 'FormCraft is intended to let one form move between structured data, a fillable PDF, a browser, and printed paper—then return to ShareCraft as one traceable record.',
     features: [
       planned('PdfCraft in the browser', 'PdfCraft is intended to render fillable forms, offer a read-only view for completed records, and submit electronic responses to ShareCraft’s controlled public side.'),
-      planned('A QR code for each instance', 'Each printed document can carry a QR code that resolves an opaque instance identity, template version, field map, and ShareCraft record without exposing personal data.'),
+      planned('A QR code for each instance', 'Each printed document can carry a QR code that acts as an alignment anchor and resolves an opaque instance identity, template version, field map, and ShareCraft record without exposing personal data.'),
       planned('A guided paper panorama', 'The PdfCraft phone app is intended to send a guided video stream while the user moves across the page, assemble it like a panorama, and progressively fill the electronic form from the captured marks.'),
       planned('Optional public attestation', 'A finalized document hash can be digitally signed and submitted to OpenTimestamps for a Bitcoin-anchored existence proof while the document itself remains private.'),
     ],
