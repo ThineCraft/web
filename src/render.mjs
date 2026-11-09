@@ -41,13 +41,16 @@ export function renderSite(site, allSites) {
   <link rel="canonical" href="https://${escapeHtml(site.domain)}/">
   <link rel="stylesheet" href="/styles.css">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/site.js" defer></script>
 </head>
 <body style="--accent:${escapeHtml(site.accent)}">
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="https://thinecraft.io">ThineCraft</a>
-    <nav aria-label="ThineCraft projects">${renderNavigation(allSites, site.id)}</nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="project-navigation">Projects</button>
+    <nav id="project-navigation" class="project-nav" aria-label="ThineCraft projects" data-open="false">${renderNavigation(allSites, site.id)}</nav>
   </header>
-  <main>
+  <main id="main">
     <section class="hero">
       <p class="eyebrow">${escapeHtml(site.eyebrow)}</p>
       <h1>${escapeHtml(site.headline)}</h1>
