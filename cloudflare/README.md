@@ -1,21 +1,23 @@
-# Cloudflare Pages handoff
+# GitHub Pages and Cloudflare handoff
 
-This repository builds eight independent static directories from one source. Create one Cloudflare Pages project for each entry in `projects.json`, connect every project to `ThineCraft/web`, and use the listed build command and output directory.
+This repository builds eight independent static directories from one source. Each output is copied to `docs/` in the matching public project repository listed in `projects.json`. GitHub Pages serves `main:/docs`; Cloudflare manages the public DNS zone.
 
-## Shared settings
+## GitHub Pages settings
 
-- Production branch: `main`
-- Build command: `npm run build`
-- Root directory: repository root
-- Node version: 22 or newer
-- Build output: the per-project directory from `projects.json`
+- Branch: `main`
+- Folder: `/docs`
+- Custom domain: the matching domain from `projects.json`
+- HTTPS enforcement: enable after GitHub issues the custom-domain certificate
 
-## Custom domains
+## Cloudflare DNS
 
-Attach the listed custom domain after the corresponding Pages project has completed its first successful deployment. Cloudflare should create or validate the required DNS record and provision TLS.
+- The apex uses GitHub Pages' four documented `A` records and four `AAAA` records.
+- `share`, `drive`, `team`, `gantt`, `flow`, `show`, `form`, and `www` are `CNAME` records to `thinecraft.github.io`.
+- Keep records DNS-only while GitHub provisions certificates. Proxy them only after all custom domains work over HTTPS.
+- When proxying is enabled, use Cloudflare SSL/TLS mode `Full (strict)`.
 
-The repository contains no Cloudflare account IDs, API tokens, GitHub credentials, or DNS-zone identifiers. Authorization and custom-domain activation must be completed in the owning Cloudflare account.
+The repository contains no Cloudflare account IDs, API tokens, GitHub credentials, or DNS-zone identifiers.
 
-## Why eight projects use one repository
+## Why the generator remains shared
 
-Each subdomain remains independently deployable and can gain its own settings later. The sites still share one generator, design system, navigation model, and content schema, preventing eight near-identical codebases from drifting apart.
+Each public site lives with its project while the generator, design system, navigation model, and content schema remain centralized here. Rebuild the source, then copy each `dist/<site-id>/` output to the matching repository's `docs/` folder.

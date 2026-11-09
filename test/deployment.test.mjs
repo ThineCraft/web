@@ -10,17 +10,18 @@ async function projectMappings() {
 
 test('maps every canonical domain to one known static output', async () => {
   const mappings = await projectMappings();
-  const expectedIds = sites.map((site) => site.id).sort();
+  const mappedById = new Map(mappings.projects.map((project) => [project.siteId, project]));
 
-  assert.deepEqual(mappings.projects.map((project) => project.siteId).sort(), expectedIds);
-  assert.deepEqual(mappings.projects.map((project) => project.domain).sort(), sites.map((site) => site.domain).sort());
-  for (const project of mappings.projects) {
-    assert.equal(project.buildCommand, 'npm run build');
+  assert.deepEqual([...mappedById.keys()].sort(), sites.map((site) => site.id).sort());
+  for (const site of sites) {
+    const project = mappedById.get(site.id);
+    assert.equal(project.domain, site.domain);
     assert.equal(project.outputDirectory, `dist/${project.siteId}`);
+    assert.match(project.repository, /^ThineCraft\/[A-Za-z]+Craft$/);
   }
 });
 
-test('contains no unknown or duplicate Cloudflare project site IDs', async () => {
+test('contains no unknown or duplicate deployment site IDs', async () => {
   const mappings = await projectMappings();
   const known = new Set(sites.map((site) => site.id));
   const ids = mappings.projects.map((project) => project.siteId);

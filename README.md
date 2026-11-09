@@ -30,12 +30,12 @@ The build recreates `dist/` and writes one complete static site to each `dist/<s
 - `src/render.mjs` renders semantic HTML and shared sections.
 - `src/assets.mjs` contains the shared visual system, interaction, security headers, and per-site favicon generator.
 - `scripts/build.mjs` creates deterministic static outputs.
-- `cloudflare/projects.json` maps Cloudflare Pages projects to build outputs and custom domains.
+- `cloudflare/projects.json` maps build outputs to the eight GitHub repositories and custom domains.
 - `test/` protects the site count, content promises, accessibility contract, output shape, and deployment mapping.
 
 ## Publishing
 
-Cloudflare Pages is the intended public host. See `cloudflare/README.md` for the eight-project configuration. Source remains in the `ThineCraft` GitHub organization while Cloudflare provides the public domains, TLS, and edge delivery.
+Each project repository serves its own generated site through GitHub Pages. Cloudflare manages `thinecraft.io`, the product subdomains, public TLS, and optional edge proxying. See `cloudflare/README.md` for the deployment and DNS layout.
 
 ## Status and licensing
 

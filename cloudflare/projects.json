@@ -2,58 +2,50 @@
   "projects": [
     {
       "siteId": "home",
-      "projectName": "thinecraft",
+      "repository": "ThineCraft/ThineCraft",
       "domain": "thinecraft.io",
-      "buildCommand": "npm run build",
       "outputDirectory": "dist/home"
     },
     {
       "siteId": "share",
-      "projectName": "thinecraft-share",
+      "repository": "ThineCraft/ShareCraft",
       "domain": "share.thinecraft.io",
-      "buildCommand": "npm run build",
       "outputDirectory": "dist/share"
     },
     {
       "siteId": "drive",
-      "projectName": "thinecraft-drive",
+      "repository": "ThineCraft/DriveCraft",
       "domain": "drive.thinecraft.io",
-      "buildCommand": "npm run build",
       "outputDirectory": "dist/drive"
     },
     {
       "siteId": "team",
-      "projectName": "thinecraft-team",
+      "repository": "ThineCraft/TeamCraft",
       "domain": "team.thinecraft.io",
-      "buildCommand": "npm run build",
       "outputDirectory": "dist/team"
     },
     {
       "siteId": "gantt",
-      "projectName": "thinecraft-gantt",
+      "repository": "ThineCraft/GanttCraft",
       "domain": "gantt.thinecraft.io",
-      "buildCommand": "npm run build",
       "outputDirectory": "dist/gantt"
     },
     {
       "siteId": "flow",
-      "projectName": "thinecraft-flow",
+      "repository": "ThineCraft/FlowCraft",
       "domain": "flow.thinecraft.io",
-      "buildCommand": "npm run build",
       "outputDirectory": "dist/flow"
     },
     {
       "siteId": "show",
-      "projectName": "thinecraft-show",
+      "repository": "ThineCraft/ShowCraft",
       "domain": "show.thinecraft.io",
-      "buildCommand": "npm run build",
       "outputDirectory": "dist/show"
     },
     {
       "siteId": "form",
-      "projectName": "thinecraft-form",
+      "repository": "ThineCraft/FormCraft",
       "domain": "form.thinecraft.io",
-      "buildCommand": "npm run build",
       "outputDirectory": "dist/form"
     }
   ]
