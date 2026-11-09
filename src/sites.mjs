@@ -1,4 +1,6 @@
-const project = ({ id, name, domain, eyebrow, headline, summary, accent }) => ({
+const planned = (title, body) => ({ title, body, label: 'Planned capability' });
+
+const project = ({ id, name, domain, eyebrow, headline, summary, accent, thesis, features, sequence, signal }) => ({
   id,
   name,
   domain,
@@ -6,6 +8,10 @@ const project = ({ id, name, domain, eyebrow, headline, summary, accent }) => ({
   headline,
   summary,
   accent,
+  thesis,
+  features,
+  sequence,
+  signal,
   status: id === 'home' ? 'Ecosystem in formation' : 'Placeholder project',
 });
 
@@ -18,6 +24,14 @@ export const sites = [
     headline: 'Your work. Your way. Yours to keep.',
     summary: 'A planned family of open tools for creating, collaborating, and retaining ownership of organizational knowledge.',
     accent: '#d9ff6b',
+    thesis: 'Cloud convenience should not require permanent dependence. ThineCraft is exploring a connected set of open systems that organizations can understand, host, move, and keep.',
+    features: [
+      planned('Own the record', 'Open formats and portable services are intended to keep organizational knowledge available beyond any one vendor.'),
+      planned('Connect the work', 'Projects are designed as a family: files, sites, conversations, plans, workflows, models, and forms can share context.'),
+      planned('Choose the infrastructure', 'The intended architecture supports hosted convenience, self-hosting, and hybrid continuity without changing the meaning of the data.'),
+    ],
+    sequence: ['Create with open tools', 'Collaborate across services', 'Retain a usable copy'],
+    signal: ['OPEN', 'PORTABLE', 'YOURS'],
   }),
   project({
     id: 'share',
@@ -27,6 +41,14 @@ export const sites = [
     headline: 'A SharePoint alternative shaped around ownership.',
     summary: 'Planned open infrastructure for intranets, portals, documents, lists, publishing, governance, and collaboration.',
     accent: '#69e6c5',
+    thesis: 'ShareCraft is intended to become the shared-content foundation of the ecosystem: a place for organizational knowledge to be published, governed, searched, and reused without being trapped.',
+    features: [
+      planned('Sites and structured knowledge', 'Team sites, communication sites, intranets, pages, news, lists, navigation, and reusable content are part of the intended SharePoint-alternative scope.'),
+      planned('Document libraries and governance', 'Document libraries are intended to combine metadata, versions, search, permissions, sharing controls, auditability, retention, and governance.'),
+      planned('Co-authoring across the craft', 'Presence and co-authoring are intended for WordCraft, GridCraft, PdfCraft, SolidCraft, DeckCraft, and other compatible ThineCraft applications.'),
+    ],
+    sequence: ['Publish a governed space', 'Collaborate in context', 'Keep knowledge portable'],
+    signal: ['SITE', 'LIBRARY', 'CONTEXT'],
   }),
   project({
     id: 'drive',
@@ -34,8 +56,16 @@ export const sites = [
     domain: 'drive.thinecraft.io',
     eyebrow: 'Sync, migration, and continuity',
     headline: 'Keep every file in reach—and under your control.',
-    summary: 'A planned hybrid OneDrive alternative spanning desktop synchronization, metadata, migration, and organization-controlled offline copies.',
+    summary: 'A planned hybrid OneDrive alternative spanning desktop synchronization, managed metadata, migration, and organization-controlled offline copies.',
     accent: '#79b8ff',
+    thesis: 'DriveCraft is intended to join everyday synchronization with an organization-wide continuity layer, so cloud files remain visible, movable, and recoverable on infrastructure the organization controls.',
+    features: [
+      planned('One client across operating systems', 'Desktop synchronization is planned for Zorin OS and other Linux environments, Windows, and macOS, with a consistent view of files, managed metadata, versions, and sync state.'),
+      planned('ShareCraft and Microsoft Graph', 'Native ShareCraft connectivity and Microsoft Graph integration are intended to support SharePoint and OneDrive discovery, migration, backup, and controlled synchronization.'),
+      planned('A complete offline copy', 'A server, NAS, or private host can be planned as an offline copy of the files an organization uses, with local PostgreSQL tracking for more than 100,000 files.'),
+    ],
+    sequence: ['Discover files and metadata', 'Move or synchronize safely', 'Maintain an independent copy'],
+    signal: ['SYNC', '100K+', 'OFFLINE'],
   }),
   project({
     id: 'team',
@@ -45,6 +75,14 @@ export const sites = [
     headline: 'A shared place to talk, meet, and decide.',
     summary: 'A planned open communication and meetings platform for teams that want portable conversations and records.',
     accent: '#b58cff',
+    thesis: 'TeamCraft is intended to treat communication as organizational knowledge—something that can remain connected to files, plans, and decisions rather than disappearing into a closed message stream.',
+    features: [
+      planned('Spaces with context', 'Channels and conversations can be organized around teams, projects, ShareCraft spaces, and durable records.'),
+      planned('Meetings that leave a trail', 'Meetings, notes, decisions, and follow-up work are intended to remain linked instead of becoming disconnected artifacts.'),
+      planned('Portable communication', 'Open interfaces and exportable records are intended to make migration, self-hosting, and long-term access practical.'),
+    ],
+    sequence: ['Gather around the work', 'Meet and decide', 'Preserve the context'],
+    signal: ['TALK', 'MEET', 'DECIDE'],
   }),
   project({
     id: 'gantt',
@@ -54,6 +92,14 @@ export const sites = [
     headline: 'See the work, the sequence, and the strain.',
     summary: 'A planned project scheduling and resource-management system centered on understandable plans and durable data.',
     accent: '#ffb86b',
+    thesis: 'GanttCraft is intended to make complex schedules explainable: dependencies, capacity, milestones, and change should be visible to the people doing the work—not only to planning software.',
+    features: [
+      planned('Schedules with consequences', 'Tasks, dependencies, baselines, milestones, and constraints are intended to show how one change travels through a plan.'),
+      planned('Resource visibility', 'Workload and availability views are planned to reveal overload, slack, and competing commitments before they become surprises.'),
+      planned('Open project records', 'Plans are intended to connect to files, conversations, and workflows while remaining exportable and independently usable.'),
+    ],
+    sequence: ['Map the work', 'Balance time and capacity', 'Adapt without losing history'],
+    signal: ['PLAN', 'LOAD', 'CHANGE'],
   }),
   project({
     id: 'flow',
@@ -63,6 +109,14 @@ export const sites = [
     headline: 'Make the process visible before making it automatic.',
     summary: 'A planned open workflow and integration platform for connecting ThineCraft services and external systems.',
     accent: '#ff7f96',
+    thesis: 'FlowCraft is intended to make automation understandable and portable, with visible triggers, decisions, approvals, actions, and recovery paths rather than opaque background behavior.',
+    features: [
+      planned('Readable workflows', 'A visual process model is intended to show triggers, branches, approvals, retries, and outcomes in language teams can review.'),
+      planned('Connectors without captivity', 'ThineCraft services and external systems can be joined through open connector contracts and inspectable data mappings.'),
+      planned('Operations with evidence', 'Run history, errors, human interventions, and versioned definitions are intended to make automation supportable and auditable.'),
+    ],
+    sequence: ['Describe the process', 'Connect the systems', 'Observe every run'],
+    signal: ['TRIGGER', 'DECIDE', 'ACT'],
   }),
   project({
     id: 'show',
@@ -72,6 +126,14 @@ export const sites = [
     headline: 'From a line on a canvas to a living model.',
     summary: 'A planned environment for diagrams, animation, business intelligence, and digital twins.',
     accent: '#64d8ff',
+    thesis: 'ShowCraft is intended to bridge explanation and observation: the same visual language can describe an idea, animate a process, reveal live measures, or represent a changing system.',
+    features: [
+      planned('Diagrams with meaning', 'Shapes, connectors, layers, data, and reusable visual vocabularies are intended to make diagrams computable as well as readable.'),
+      planned('Animation and narrative', 'Timelines, transitions, and presentation controls are planned for explaining how a system behaves over time.'),
+      planned('BI and digital twins', 'Data connections are intended to turn a model into a live operational view without abandoning its explanatory structure.'),
+    ],
+    sequence: ['Model the idea', 'Connect the evidence', 'Watch the system change'],
+    signal: ['MODEL', 'DATA', 'MOTION'],
   }),
   project({
     id: 'form',
@@ -81,5 +143,14 @@ export const sites = [
     headline: 'Let the form survive the medium.',
     summary: 'A planned forms platform connecting browser entry, fillable PDFs, guided paper capture, and verifiable records.',
     accent: '#ffd75f',
+    thesis: 'FormCraft is intended to let one form move between structured data, a fillable PDF, a browser, and printed paper—then return to ShareCraft as one traceable record.',
+    features: [
+      planned('PdfCraft in the browser', 'PdfCraft is intended to render fillable forms, offer a read-only view for completed records, and submit electronic responses to ShareCraft’s controlled public side.'),
+      planned('A QR code for each instance', 'Each printed document can carry a QR code that resolves an opaque instance identity, template version, field map, and ShareCraft record without exposing personal data.'),
+      planned('A guided paper panorama', 'The PdfCraft phone app is intended to send a guided video stream while the user moves across the page, assemble it like a panorama, and progressively fill the electronic form from the captured marks.'),
+      planned('Optional public attestation', 'A finalized document hash can be digitally signed and submitted to OpenTimestamps for a Bitcoin-anchored existence proof while the document itself remains private.'),
+    ],
+    sequence: ['Create one form definition', 'Fill in browser or on paper', 'Capture, verify, and submit'],
+    signal: ['QR', 'SCAN', 'VERIFY'],
   }),
 ];
